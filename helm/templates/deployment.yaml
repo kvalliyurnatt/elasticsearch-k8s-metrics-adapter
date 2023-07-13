@@ -38,11 +38,10 @@ spec:
             {{- with .Values.env }}
               {{- toYaml . | nindent 12 }}
             {{- end }}
-          args: [
-            "--secure-port", "6443",
-            "--cert-dir=/var/run/serving-cert",
-            "--v", "{{ .Values.logVerbosity }}",
-          ]
+          args:
+            {{- with .Values.args }}
+              {{- toYaml . | nindent 12 }}
+            {{- end }}
           resources:
             limits:
               cpu: "{{ .Values.resources.limits.cpu }}"

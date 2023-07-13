@@ -21,9 +21,9 @@ resources:
 
 runAsUser: "1111"
 
-logVerbosity: "1"
-
 env: []
+
+args: ["--secure-port", "6443","--cert-dir=/var/run/serving-cert","--v", "1"]
 
 envFrom:
   - secretRef:
